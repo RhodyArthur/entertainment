@@ -1,0 +1,24 @@
+@import '../styles/variables';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: $dark-blue;
+    color: $white;
+}
+
+img {
+    //max-width: 100%;
+    display: block;
+}
+
+svg {
+    cursor: pointer;
+}

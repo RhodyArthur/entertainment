@@ -1,0 +1,26 @@
+@use '../../../styles/breakpoints';
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+@import '../../../styles/variables';
+
+.search-container {
+    @include flex-row(flex, start, center);
+    gap: 1rem;
+    padding: 1.5rem 0;
+
+    input {
+        @extend .heading-m;
+        background-color: transparent;
+        color: $white;
+        width: 100%;
+        border: none;
+        outline: none;
+        caret-color: $red;
+        cursor: pointer;
+
+        &:active,
+        &:focus-within {
+            border-bottom: 1px solid $greyish-blue;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@use '../../../../styles/breakpoints';
+@import '../../../../styles/mixins';
+@import '../../../../styles/typography';
+@import '../../../../styles/variables';
+
+.login-container {
+    @include flex-column(3.5rem);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .icon {
+        padding-top: 3rem;
+    }
+
+    form {
+        @include form-styles;
+
+        .input-fields {
+
+            .input-group {
+                position: relative;
+                small {
+                    position: absolute;
+                    right: 0;
+                    @include flex-row(flex, center, center);
+                    color: $red;
+                    margin-top: -1.5rem;
+                }
+            }
+        }
+    }
+
+}
+
+//media queries
+@include breakpoints.mq(tablet) {
+
+    .login-container {
+
+        form {
+            width: pxToRem(400);
+        }
+    }
+}

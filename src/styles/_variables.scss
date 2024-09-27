@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+// define colors
+$red: #FC4747;
+$dark-blue: #10141E;
+$greyish-blue: #5A698F;
+$semi-dark-blue: #161D2F;
+$white: #FFFFFF;
+
+//convert px to rem
+@function pxToRem($value) {
+    @return math.div($value, 16)+rem;
+}

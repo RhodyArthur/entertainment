@@ -1,0 +1,56 @@
+@use '../../../styles/breakpoints';
+@import '../../../styles/mixins';
+@import '../../../styles/typography';
+@import '../../../styles/variables';
+
+.main-container {
+    overflow: hidden;
+
+    .content {
+        @include flex-column(1.5rem);
+        overflow: auto;
+        width: 100%;
+        padding: 0 1rem;
+
+        .name {
+            font-size: 1.25rem;
+        }
+
+    }
+
+}
+
+// media queries
+@include breakpoints.mq(tablet) {
+    .main-container {
+        padding: 1.5rem;
+
+        .content {
+
+            .name {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+            }
+        }
+    }
+}
+
+
+@include breakpoints.mq(desktop) {
+.main-container {
+    display: flex;
+    padding: 2rem;
+    gap: pxToRem(36);
+    overflow: hidden;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 4rem);
+        overflow: scroll;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+
+    }
+}
+}

@@ -1,0 +1,79 @@
+@import '../styles/variables';
+
+@mixin flex-row($display, $position, $align) {
+    display: $display;
+    justify-content: $position;
+    align-items: $align;
+}
+
+@mixin flex-column($gap) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@mixin  btn-styles {
+    border-radius: 6px;
+    background-color: $red;
+    color: $white;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+@mixin form-styles {
+    @include flex-column(2.5rem);
+    background-color: $semi-dark-blue;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: pxToRem(327);
+
+    .text {
+        color: $white;
+        @extend .heading-l;
+    }
+
+
+    .input-fields {
+        @include flex-column(1.5rem);
+
+
+        input {
+            caret-color: $red;
+            width: 100%;
+            border: none;
+            outline: none;
+            background-color: inherit;
+            color: $white;
+            border-bottom: 1px solid $greyish-blue;
+            padding: .5rem 0;
+        }
+    }
+
+    .btn {
+        @extend .input-fields;
+
+        button {
+            @include btn-styles;
+            @extend .body-m;
+
+            &:hover {
+                background-color: $white;
+                color: $dark-blue;
+            }
+        }
+
+        p {
+            text-align: center;
+            color: $white;
+            @extend .body-m;
+
+            a  {
+                text-decoration: none;
+                color: $red;
+            }
+        }
+    }
+}

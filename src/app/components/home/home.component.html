@@ -1,0 +1,38 @@
+<div class="main-container" *ngIf="movies$ | async as movies">
+    <!-- nav bar-->
+    <app-menu/>
+
+    <div class="content">
+        <!-- search bar-->
+        <app-search/>
+
+        <!-- Trends-->
+        @if (category === null){
+        <!--   show trends on home page only   -->
+            <app-trends [trends]="trends"/>
+            <p class="name">{{getName()}}</p>
+            <app-card [movies]="movies"/>
+
+        }
+        @else {
+        <!-- Recommendations-->
+            <p class="name">{{getName()}}</p>
+
+            @if (category === 'movie' || category === 'tv series') {
+                 <app-card [movies]="movies"/>
+            }
+            @else {
+<!--                <app-bookmark/>-->
+                <div class="boomark-shows" *ngIf="bookMarkedMoviesList$ | async as bmMovies">
+                    @if (bmMovies.length > 0) {
+                        <app-card [movies]="bmMovies"/>
+                    } @else {
+                        <p class="name">You have no bookmarked movies yet</p>
+                    }
+                </div>
+            }
+
+        }
+        </div>
+
+</div>

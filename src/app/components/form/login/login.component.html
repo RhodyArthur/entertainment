@@ -1,0 +1,45 @@
+<div class="login-container">
+<!--    icon-->
+    <div class="icon">
+        <svg width="33" height="27" xmlns="http://www.w3.org/2000/svg">
+            <path d="m26.463.408 3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-3.2l3.2 6.4h-4.8l-3.2-6.4h-1.6a3.186 3.186 0 0 0-3.184 3.2l-.016 19.2a3.2 3.2 0 0 0 3.2 3.2h25.6a3.2 3.2 0 0 0 3.2-3.2V.408h-6.4Z" fill="#FC4747"/>
+        </svg>
+    </div>
+
+
+        <!--    form-->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p class="text">Login</p>
+
+            <div class="input-fields">
+                <!--        email-->
+                <div class="input-group">
+                    <input type="email" name="email" id="email" placeholder="Email address" formControlName="email">
+                    @if (loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)) {
+                        @if (loginForm.get('email')?.errors?.['required']) {
+                            <small class="error">Can't be empty</small>
+                        }
+                    }
+                </div>
+
+                <!--        password-->
+                <div class="input-group">
+                    <input type="password" name="password" id="password" placeholder="Password" formControlName="password">
+
+                    @if(loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)){
+                        @if (loginForm.get('password')?.errors?.['required']) {
+                            <small class="error">Can't be empty</small>
+                        }
+                    }
+                </div>
+
+            </div>
+
+        <!--        button-->
+            <div class="btn">
+                <button type="submit" [disabled]="loginForm.invalid">Login to your account</button>
+                <p>Don't have an account?
+                    <a [routerLink]="['/','signup']" routerLinkActive="active-link" aria-label="Sign up">Sign Up</a></p>
+            </div>
+        </form>
+</div>
