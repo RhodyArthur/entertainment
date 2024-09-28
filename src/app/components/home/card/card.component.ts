@@ -12,7 +12,7 @@ import {setBookMardkedMovie} from "../../../store/movies.actions";
 })
 export class CardComponent {
 
-    @Input() movies!: Movies[];
+    @Input() movie!: Movies;
 
     constructor(private store: Store) {
     }

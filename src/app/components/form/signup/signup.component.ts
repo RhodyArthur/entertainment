@@ -61,9 +61,7 @@ export class SignupComponent implements OnInit{
 
             // clear form
             this.registerForm.reset();
-
         }
-
 
     }
 

@@ -11,25 +11,25 @@
         <!--   show trends on home page only   -->
             <app-trends [trends]="trends"/>
             <p class="name">{{getName()}}</p>
-            <app-card [movies]="movies"/>
-
+            <div class="recommend">
+                @for (movie of movies; track $index) {
+                    <app-card [movie]="movie"/>
+                }
+            </div>
         }
         @else {
         <!-- Recommendations-->
             <p class="name">{{getName()}}</p>
 
             @if (category === 'movie' || category === 'tv series') {
-                 <app-card [movies]="movies"/>
+                <div class="recommend">
+                    @for (movie of movies; track $index) {
+                        <app-card [movie]="movie"/>
+                    }
+                </div>
             }
             @else {
-              <app-bookmark/>
-                 <!-- <div class="boomark-shows" *ngIf="bookMarkedMoviesList$ | async as bmMovies">
-                    @if (bmMovies.length > 0) {
-                        <app-card [movies]="bmMovies"/>
-                    } @else {
-                        <p class="name">You have no bookmarked movies yet</p>
-                    }
-                </div> -->
+                <app-bookmark/>
             }
 
         }

@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
     movies$!: Observable<Movies[]>;
     category!: string | null;
     trends: Movies[] = [];
-    bookMarkedMoviesList$!: Observable<Movies[]>;
 
 
     constructor(private store: Store<AppState>, private route: ActivatedRoute) {
@@ -48,8 +47,6 @@ export class HomeComponent implements OnInit {
 
             // get trends
             this.getTrends();
-
-            this.getBookMarkedShows();
         })
     }
 
@@ -71,14 +68,9 @@ export class HomeComponent implements OnInit {
         } else if (this.category === 'tv series') {
             return 'TV Series'
         } else if (this.category === 'bookmark') {
-            return 'Bookmarked Movies'
+            return
         } else {
             return 'Recommended for you'
         }
-    }
-
-    // get bookmarked movies
-    getBookMarkedShows() {
-        this.bookMarkedMoviesList$ = this.store.select(selectBookMarkedMovies);
     }
 }

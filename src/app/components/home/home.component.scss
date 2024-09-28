@@ -16,6 +16,12 @@
             font-size: 1.25rem;
         }
 
+        .recommend {
+            display: grid;
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+            gap: 1rem;
+        }
+
     }
 
 }
@@ -30,6 +36,11 @@
             .name {
                 font-size: 2rem;
                 letter-spacing: -0.5px;
+            }
+
+            .recommend {
+                grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                gap: pxToRem(24);
             }
         }
     }
@@ -50,6 +61,11 @@
         overflow: scroll;
         scrollbar-width: none;
         scroll-behavior: smooth;
+
+        .recommend {
+            grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+            gap: pxToRem(24);
+        }
 
     }
 }

@@ -3,11 +3,6 @@
 @import '../../../../styles/typography';
 @import '../../../../styles/variables';
 
-.recommend {
-    display: grid;
-    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-    gap: 1rem;
-
     .card {
         @include flex-column(.5rem);
 
@@ -99,20 +94,4 @@
             }
         }
     }
-}
 
-// media queries
-@include breakpoints.mq(tablet) {
-    .recommend {
-        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-        gap: pxToRem(24);
-    }
-}
-
-
-@include breakpoints.mq(desktop) {
-        .recommend {
-            grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-            gap: pxToRem(24);
-        }
-}

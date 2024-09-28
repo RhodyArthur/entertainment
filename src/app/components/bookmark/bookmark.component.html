@@ -1,1 +1,20 @@
-<p>bookmark works!</p>
+<div class="bm" *ngIf="bookMarkedMoviesList$ | async as bm">
+    @if (bm.length > 0) {
+        <p class="name">Bookmarked Movies</p>
+        <div class="recommend" *ngIf="movies$ | async as bmMovies">
+            @for (movie of bmMovies; track $index) {
+                <app-card [movie]="movie"/>
+            }
+        </div>
+
+        <p class="name">Bookmarked TV Series</p>
+        <div class="recommend" *ngIf="tvSeries$ | async as bmSeries">
+            @for (series of bmSeries; track $index) {
+                <app-card [movie]="series"/>
+            }
+        </div>
+    }
+    @else {
+        <p class="name">There are no bookmarked Movies or TV Series</p>
+    }
+</div>
