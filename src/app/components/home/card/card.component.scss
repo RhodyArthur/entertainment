@@ -105,7 +105,7 @@
 @include breakpoints.mq(tablet) {
     .recommend {
         grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-        gap: pxToRem(30);
+        gap: pxToRem(24);
     }
 }
 
@@ -113,6 +113,6 @@
 @include breakpoints.mq(desktop) {
         .recommend {
             grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-            gap: pxToRem(40);
+            gap: pxToRem(24);
         }
 }

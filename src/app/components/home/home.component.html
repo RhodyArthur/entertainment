@@ -22,14 +22,14 @@
                  <app-card [movies]="movies"/>
             }
             @else {
-<!--                <app-bookmark/>-->
-                <div class="boomark-shows" *ngIf="bookMarkedMoviesList$ | async as bmMovies">
+              <app-bookmark/>
+                 <!-- <div class="boomark-shows" *ngIf="bookMarkedMoviesList$ | async as bmMovies">
                     @if (bmMovies.length > 0) {
                         <app-card [movies]="bmMovies"/>
                     } @else {
                         <p class="name">You have no bookmarked movies yet</p>
                     }
-                </div>
+                </div> -->
             }
 
         }

@@ -9,6 +9,7 @@ import {moviesReducer} from "./store/movies.reducers";
 import {HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi} from "@angular/common/http";
 import {MoviesEffects} from "./store/movies.effects";
 import {authInterceptor} from "./interceptor/auth.interceptor";
+import { AuthGuard } from './guard/auth.guard';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
       provideStore(),
       provideState({name: 'movies', reducer: moviesReducer}),
       provideEffects(MoviesEffects),
-      provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+      provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+      AuthGuard
   ]
 };

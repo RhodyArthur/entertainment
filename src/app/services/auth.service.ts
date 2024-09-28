@@ -29,7 +29,7 @@ export class AuthService {
     private setSession(authResult: any) {
         if (authResult && authResult.token) {
             localStorage.setItem('token', authResult.token);
-            localStorage.setItem('name', authResult.email || '');
+            localStorage.setItem('email', authResult.email || '');
             this.authStatus.next(true);
         } else {
             console.error('Invalid auth result:', authResult);

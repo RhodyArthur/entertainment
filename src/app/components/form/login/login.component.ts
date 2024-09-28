@@ -13,6 +13,8 @@ import {AuthService} from "../../../services/auth.service";
 export class LoginComponent implements OnInit {
 
     loginForm!: FormGroup;
+    errorMessage: string | null = null;
+    isLoading: boolean = false;
 
     constructor(private fb: FormBuilder, private authService: AuthService, private router: Router,
                 private route: ActivatedRoute) {}
@@ -32,13 +34,28 @@ export class LoginComponent implements OnInit {
                 email: email,
                 password: password
             }
+
+            // show loading indicator
+            this.isLoading = true;
+
             this.authService.login(loginData).subscribe(
                 () => {
                     this.router.navigate([''])
+                    this.errorMessage = null;
+                    this.isLoading = false;
                 },
                 (error) => {
-                    console.error('Login Failed')
+                    console.error('Login Failed', error);
+                    this.errorMessage = 'Invalid email or password';
+                    this.isLoading = false;
+
+                    // clear error message after 3 s
+                    setTimeout(() => {
+                        this.errorMessage= null;
+                    },5000)
                 })
+
+            this.loginForm.reset();
         }
         else {
             this.loginForm.markAsTouched();

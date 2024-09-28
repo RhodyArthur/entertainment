@@ -3,19 +3,13 @@ import {Observable} from "rxjs";
 import {Movies} from "../../interface/movies";
 import {AppState} from "../../store/appstate";
 import {Store} from "@ngrx/store";
-import {
-    selectAllMovies,
-    selectBookMarkedMovies,
-    selectFeatureState,
-    selectFilteredMovies
-} from "../../store/movies.selectors";
+import { selectBookMarkedMovies, selectFilteredMovies } from "../../store/movies.selectors";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {SearchComponent} from "../search/search.component";
 import {MenuComponent} from "../menu/menu.component";
 import {TrendsComponent} from "./trends/trends.component";
 import {CardComponent} from "./card/card.component";
-import {setBookMardkedMovie} from "../../store/movies.actions";
 import {BookmarkComponent} from "../bookmark/bookmark.component";
 
 @Component({

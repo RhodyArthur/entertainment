@@ -9,12 +9,15 @@ export const routes: Routes = [
      loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent)
     },
     {path: 'category/:category',
-     loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent)
+     loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent),
     },
-    // {path: 'category/bookmark',
-    //  loadComponent: () => import('./components/bookmark/bookmark.component').then(m => m.BookmarkComponent),
-    //     canActivate: [AuthGuard]
-    // },
+    {path: 'category/bookmark',
+     loadComponent: () => import('./components/bookmark/bookmark.component').then(m => m.BookmarkComponent),
+     canActivate: [AuthGuard]
+
+
+    },
+    
     {
         path: 'login', component: LoginComponent
     },

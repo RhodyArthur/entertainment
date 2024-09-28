@@ -11,6 +11,18 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <p class="text">Login</p>
 
+            <!-- error message -->
+            @if(errorMessage) {
+                <p class="errormsg">{{errorMessage}}</p>
+            }
+
+            <!-- loading indicator -->
+            @if (isLoading) {
+                <div id="spinner">
+                    <div class="spinner"></div>
+                </div>
+            }
+
             <div class="input-fields">
                 <!--        email-->
                 <div class="input-group">
@@ -29,6 +41,9 @@
                     @if(loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)){
                         @if (loginForm.get('password')?.errors?.['required']) {
                             <small class="error">Can't be empty</small>
+                        }
+                        @if (loginForm.get('password')?.errors?.['minlength']) {
+                            <small class="error">Password must be at least 8 characters</small>
                         }
                     }
                 </div>

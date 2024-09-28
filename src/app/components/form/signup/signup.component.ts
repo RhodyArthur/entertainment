@@ -12,7 +12,8 @@ import {AuthService} from "../../../services/auth.service";
 })
 export class SignupComponent implements OnInit{
     registerForm!: FormGroup;
-    errorMessage: string = '';
+    errorMessage: string | null = null;
+    isLoading: boolean = false;
 
     constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
@@ -38,15 +39,21 @@ export class SignupComponent implements OnInit{
                 email: email,
                 password: password
             }
+            // show loading indicator
+            this.isLoading = true;
+
             this.authService.register(user)
                 .subscribe(
                     () => {
                         // route to log in after successful registration
                         this.router.navigate(['login'])
+                        this.errorMessage = null;
+                        this.isLoading = false;
                         console.log(user)
                     },
                 (error) => {
                     console.error('Registration failed', error);
+                    this.isLoading = false;
                     this.errorMessage =
                         error.error?.message || 'Registration failed. Please try again.';
                     }
