@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
 
             // clear trends
             this.trends = [];
-            // this.bookMarkedMoviesList = [];
 
             // get trends
             this.getTrends();
